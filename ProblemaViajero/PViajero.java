@@ -27,13 +27,14 @@ public class PViajero{
         System.out.println("\n\n------------------------------------Algoritmo Costo Uniforme------------------------------------\n");
         if(existe(origen)==true && existe(destino)==true){
             Tupla actual;
-            int menor;int ruta=0;int posMenor;
+            int menor;int ruta=0;int posMenor;int rendimiento=0;
             while(origen != destino){
                 String ciudades="        Todas las posibles ciudades que puede visitar : ";
                 imprimir.add(ciudades);
                 for(int i=0; i<caminos.size(); i++){
                     actual=caminos.get(i);
                     if(origen==actual.getIncio()){
+                        rendimiento=rendimiento+1;
                         calculo.add(actual);
                         aristas.add(actual.getArista());
                         String auz="             -->"+actual.getFin()+"  costo: " +actual.getArista();
@@ -60,9 +61,10 @@ public class PViajero{
                 imprimir.add(linea1);
             }
             String lol=" ===> Se llego al destino : " + destino + " con un costo ruta de: " + ruta; 
-            imprimir.add(lol);
+            String lol1=" ==>Medida de rendimiento : "+rendimiento;
+            imprimir.add(lol);imprimir.add(lol1);
         }else{
-            imprimir.add("¡¡¡¡¡¡¡¡¡¡¡¡¡Error no exite la ciudad origen o destino. Por favor revise!!!!!!!!!!");
+            imprimir.add("¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡Error no exite la ciudad origen o destino. Por favor revise!!!!!!!!!!");
         }
         imprimirse();
     }
@@ -105,6 +107,8 @@ public class PViajero{
     public void imprimirse(){
         for(int i=0; i<imprimir.size(); i++){
             System.out.println(imprimir.get(i));
+            //System.out.println("destino= "+t.getDestino());
+            //System.out.println("distancia= "+t.getDistancia());
         }
     }
 }
