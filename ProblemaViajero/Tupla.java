@@ -1,18 +1,14 @@
-/**
- * Write a description of class Tuplas here.
- * 
- * @author (Darwin Garcia) 
- * @version (30/04/2022)
- */
 public class Tupla{
     private String inicio;
     private String fin;
     private int arista;
+    private int distanciaAlDestino;
 
-    public Tupla(String inicio, String fin, int arista){
+    public Tupla(String inicio, String fin, int arista,int distanciaAlDestino){
         this.inicio=inicio;
         this.fin=fin;
         this.arista=arista;
+        this.distanciaAlDestino=distanciaAlDestino;
     }
 
     public String getIncio(){
@@ -25,5 +21,9 @@ public class Tupla{
 
     public int getArista(){
         return arista;
+    }
+
+    public int getDistanciaAlDestino(){
+        return distanciaAlDestino;
     }
 }
